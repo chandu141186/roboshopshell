@@ -3,7 +3,7 @@
 AMI=ami-0b4f379183e5706b9     
 SG_ID=sg-097a47c9ab00911a2
 INSTANCES=("mongodb" "redis" "mysql" "rabbitmq" "catalogue" "user" "cart" "shipping" "payment" "dispatch" "web" )
-ZONE_ID=Z070118421CJ28HDS2FD5
+ZONE_ID=Z070118421CJ28HDS2FD5 
 DOMAIN_NAME=chandudevops.shop
 
 for i in "${INSTANCES[@]}"
@@ -25,8 +25,8 @@ do
 
   #fi  
      
-   aws route53 change-resource-record-sets 
-   --hosted-zone-id $ZONE_ID 
+   aws route53 change-resource-record-sets \
+   --hosted-zone-id $ZONE_ID \
    --change-batch '
   {
     "Comment": "Creating a record set for cognito endpoint"
